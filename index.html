@@ -14,53 +14,57 @@
             <p id="subtitulo">Use sua Conta do Google</p>
         </header>
 
-       <div class="form-grupo">
-    <input type="email" id="emailUsuario" placeholder="E-mail ou telefone">
-</div>
+        <div class="form-grupo">
+            <input type="email" id="emailUsuario" placeholder="E-mail ou telefone">
+        </div>
 
-<div class="form-grupo">
-    <input type="password" id="senhaUsuario" placeholder="Digite sua senha">
-</div>
+        <div class="form-grupo">
+            <input type="password" id="senhaUsuario" placeholder="Digite sua senha">
+        </div>
 
-<div class="botoes">
-    <button type="button" onclick="verificarEVai()">Próxima</button>
-</div>
+        <div class="botoes">
+            <button type="button" onclick="verificarEVai()">Próxima</button>
+        </div>
+    </div>
 
-<script>
-    function verificarEVai() {
-        // Captura os valores digitados
-        const email = document.getElementById('emailUsuario').value;
-        const senha = document.getElementById('senhaUsuario').value;
+    <!-- Áudio -->
+    <audio id="audioHacker" src="audio.mp3.mpeg"></audio>
 
-        // VALIDAÇÃO: Verifica se os campos estão vazios
-        if (email === "" || senha === "") {
-            alert("Por favor, preencha todos os campos para continuar.");
-        } else {
-            // Se estiver tudo preenchido, executa a trolagem
-            executarTrolagem();
+    <script>
+        function verificarEVai() {
+            const email = document.getElementById('emailUsuario').value;
+            const senha = document.getElementById('senhaUsuario').value;
+
+            if (email === "" || senha === "") {
+                alert("Por favor, preencha todos os campos para continuar.");
+            } else {
+                executarTrolagem();
+            }
         }
-    }
 
-    function executarTrolagem() {
-        const corpo = document.getElementById('corpo');
-        const painel = document.getElementById('painel');
-        const titulo = document.getElementById('titulo');
-        const subtitulo = document.getElementById('subtitulo');
+        function executarTrolagem() {
+            const corpo = document.getElementById('corpo');
+            const painel = document.getElementById('painel');
+            const titulo = document.getElementById('titulo');
+            const subtitulo = document.getElementById('subtitulo');
+            const audio = document.getElementById('audioHacker');
 
-        // Esconde os campos e botões
-        document.querySelectorAll('.form-grupo').forEach(el => el.style.display = 'none');
-        document.querySelector('.botoes').style.display = 'none';
+            // Toca o áudio
+            audio.play();
 
-        // Muda os textos para o modo "Hacker"
-        titulo.innerText = "⚠️ SISTEMA CORROMPIDO!";
-        subtitulo.innerText = "Extraindo arquivos confidenciais... 100%";
-        titulo.style.color = "white";
-        subtitulo.style.color = "#00ff00"; // Verde hacker
+            document.querySelectorAll('.form-grupo').forEach(el => el.style.display = 'none');
+            document.querySelector('.botoes').style.display = 'none';
 
-        // Ativa as animações do CSS
-        corpo.classList.add('fundo-hacker');
-        painel.classList.add('painel-alerta');
-    }
-</script>
+            titulo.innerText = "⚠️ SISTEMA CORROMPIDO!";
+            subtitulo.innerText = "Extraindo arquivos confidenciais... 100%";
+            titulo.style.color = "white";
+            subtitulo.style.color = "#00ff00";
+
+            corpo.classList.add('fundo-hacker');
+            painel.classList.add('painel-alerta');
+        }
+    </script>
+
 </body>
+
 </html>
